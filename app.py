@@ -31,7 +31,7 @@ except Exception as e:
 # --- 以降の関数定義 (video_search, get_results) は変更なしでOK ---
 def video_search(youtube, q='自動化', max_results=50):
     # ... (既存のコード)
-    response = Youtube().list(
+    response = Youtube
         q=q,
         part="snippet",
         order='viewCount',
