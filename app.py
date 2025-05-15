@@ -1,4 +1,4 @@
-!pip install streamlit # この行は通常、requirements.txtに記述し、app.pyからは削除します
+#!pip install streamlit # この行は通常、requirements.txtに記述し、app.pyからは削除します
 
 from apiclient.discovery import build # google-api-python-client を使う場合
 # from googleapiclient.discovery import build # より推奨されるインポート
