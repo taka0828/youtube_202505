@@ -186,7 +186,7 @@ def get_results(df_video, threshold=50000):
 st.title('YouTube分析アプリ')
 
 st.sidebar.write("""
-## クエリとしきい値の設定""")
+## クエリと閾値の設定""")
 st.sidebar.write("""
 ### クエリの入力""")
 query = st.sidebar.text_input('検索クエリを入力してください', 'Excel')
