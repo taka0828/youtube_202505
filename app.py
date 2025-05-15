@@ -30,17 +30,18 @@ except Exception as e:
 
 # --- 以降の関数定義 (video_search, get_results) は変更なしでOK ---
 def video_search(youtube, q='自動化', max_results=50):
-    # ... (既存のコード)
-    response = Youtube().list(q=q,  # youtube オブジェクトの search() メソッドを呼び出す
-    #response = youtube().list(q=q,
+    # response = Youtube().list(q=q,  # youtube オブジェクトの search() メソッドを呼び出す # ← この行と次の行を修正/削除
+    # #response = youtube().list(q=q,
+
+    # 正しいAPI呼び出し
+    response = Youtube().list(
                                  part="snippet",
                                  order='viewCount',
                                  type='video',
-                                 maxResults=max_results,
+                                 maxResults=max_results
                                 ).execute()
 
-
-    # ... (既存のコード)
+    # ... (以降のアイテム処理部分は変更なし)
     items_id = []
     items = response['items']
     for item in items:
@@ -50,6 +51,31 @@ def video_search(youtube, q='自動化', max_results=50):
         items_id.append(item_id)
     df_video = pd.DataFrame(items_id)
     return df_video
+
+
+
+# --- 以降の関数定義 (video_search, get_results) は変更なしでOK ---
+# def video_search(youtube, q='自動化', max_results=50):
+#     # ... (既存のコード)
+#     response = Youtube().list(q=q,  # youtube オブジェクトの search() メソッドを呼び出す
+#     #response = youtube().list(q=q,
+#                                  part="snippet",
+#                                  order='viewCount',
+#                                  type='video',
+#                                  maxResults=max_results,
+#                                 ).execute()
+
+
+#     # ... (既存のコード)
+#     items_id = []
+#     items = response['items']
+#     for item in items:
+#         item_id = {}
+#         item_id['video_id'] = item['id']['videoId']
+#         item_id['channel_id'] = item['snippet']['channelId']
+#         items_id.append(item_id)
+#     df_video = pd.DataFrame(items_id)
+#     return df_video
 
 def get_results(df_video, threshold=50000):
     if df_video.empty: # df_videoが空の場合の処理を追加
