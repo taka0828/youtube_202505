@@ -189,7 +189,7 @@ st.sidebar.write("""
 ## クエリと閾値の設定""")
 st.sidebar.write("""
 ### クエリの入力""")
-query = st.sidebar.text_input('検索クエリを入力してください', 'Excel')
+query = st.sidebar.text_input('検索クエリを入力してください', 'python')
 
 st.sidebar.write("""
 ### 閾値の設定""")
