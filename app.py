@@ -9,12 +9,15 @@ import streamlit as st
 with open('secret.json') as f:
     secret = json.load(f)
 
-DEVELOPER_KEY = secret['KEY']
-YOUTUBE_API_SERVICE_NAME = "youtube"
-YOUTUBE_API_VERSION = "v3"
+# Streamlit Community Cloudの「Secrets」からOpenAI API keyを取得
+developer_key = st.secrets.developer_key
 
-youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,
-                developerKey=DEVELOPER_KEY)
+# DEVELOPER_KEY = secret['KEY']
+# YOUTUBE_API_SERVICE_NAME = "youtube"
+# YOUTUBE_API_VERSION = "v3"
+
+# youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,
+#                 developerKey=DEVELOPER_KEY)
 
 def video_search(youtube, q='自動化', max_results=50):
     # q = 'Python'
